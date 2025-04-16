@@ -1,8 +1,5 @@
 /* Out of Body soft launch style.css */
 
-/* Background animation */
-
-
 body {
   margin: 0;
   padding: 0;
@@ -18,7 +15,6 @@ body {
   transition: none;
 }
 
-}
 main {
   max-width: 90%;
   padding: 1rem;
@@ -37,7 +33,6 @@ h1 {
   color: #0a0a1a; /* deep navy / near-black */
 }
 
-
 .tagline {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
@@ -52,23 +47,4 @@ a {
 }
 
 a:hover {
-  color: #39ff14; /* neon green accent */
-  border-color: #39ff14;
-}
-
-.logo img {
-  width: 120px;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-  .tagline {
-    font-size: 1rem;
-  }
-  .logo img {
-    width: 80px;
-  }
-}
+  color: #39ff14; /* neon*
