@@ -1,19 +1,6 @@
 /* Out of Body soft launch style.css */
 
 /* Background animation */
-@keyframes colorfade {
-  0%   { background-color: #4a0e17; }
-  10%  { background-color: #ef3340; }
-  20%  { background-color: #ff69b4; }
-  30%  { background-color: #e97451; }
-  40%  { background-color: #a0522d; }
-  50%  { background-color: #0a0a1a; }
-  60%  { background-color: #39ff14; }
-  70%  { background-color: #ffffff; }
-  80%  { background-color: #f4ffde; }
-  90%  { background-color: #000000; }
-  100% { background-color: #4a0e17; }
-}
 
 
 body {
@@ -27,8 +14,10 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  animation: colorfade 12s steps(10, end) infinite;
-  transition: none; /* removes smooth fade */
+  background-color: #000;
+  transition: none;
+}
+
 }
 main {
   max-width: 90%;
