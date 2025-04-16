@@ -7,6 +7,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+  <script>
+  const colors = [
+    '#000000',  // Black
+    '#ff4fa2',  // Barbie Pink (warmer)
+    '#f4ffde',  // Lime White
+    '#4a0e17',  // Dried Blood
+    '#ffffff',  // White
+    '#a0522d',  // Sienna
+    '#39ff14',  // Neon Green
+    '#0a0a1a',  // Deep Navy
+    '#ef3340',  // Bright Red
+    '#e97451'   // Burnt Sienna
+  ];
+
+  function changeBackground() {
+    const nextColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = nextColor;
+  }
+
+  // Initial color
+  changeBackground();
+
+  // Change every 6 seconds
+  setInterval(changeBackground, 6000);
+</script>
+
 <body>
   <div class="logo">
     <img src="assets/venn-placeholder.png" alt="Out of Body Logo" />
