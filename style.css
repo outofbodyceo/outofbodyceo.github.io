@@ -24,9 +24,10 @@ h1 {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
   letter-spacing: 0.5px;
-  color: #ff0033;
+  color: #ff0033; /* upgraded neon-style red */
   font-size: 5rem;
   margin-bottom: 0.5rem;
+  text-shadow: 0 0 8px #ff0033; /* optional glow */
 }
 
 .dim {
@@ -41,10 +42,29 @@ h1 {
 a {
   color: #f0efeb;
   text-decoration: none;
-  border-bottom: 1px solid #ef3340;
+  border-bottom: 1px solid #ff0033;
   padding-bottom: 2px;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 a:hover {
-  color: #39ff14; /* neon*
+  color: #39ff14; /* neon green accent */
+  border-color: #39ff14;
+}
+
+.logo img {
+  width: 120px;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .tagline {
+    font-size: 1rem;
+  }
+  .logo img {
+    width: 80px;
+  }
+}
