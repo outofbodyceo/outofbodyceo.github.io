@@ -29,14 +29,21 @@ main {
   padding: 1rem;
 }
 
-h1 {
+.alt-head {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
-  letter-spacing: 0.5px;
-  color: #ef3340;
   font-size: 5rem;
+  letter-spacing: 0.5px;
   margin-bottom: 0.5rem;
 }
+.highlight-o {
+  color: #ef3340; /* bright red */
+}
+
+.dim {
+  color: #0a0a1a; /* deep navy / near-black */
+}
+
 
 .tagline {
   font-size: 1.1rem;
