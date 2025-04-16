@@ -2,12 +2,19 @@
 
 /* Background animation */
 @keyframes colorfade {
-  0%   { background-color: #2b000f; }  /* Dark Wine */
-  25%  { background-color: #3c1f1f; }  /* Bitter Chocolate */
-  50%  { background-color: #4a0e17; }  /* Dried Blood */
-  75%  { background-color: #6e2f34; }  /* Burnt Rose */
-  100% { background-color: #5a3832; }  /* Clove */
+  0%   { background-color: #4a0e17; }
+  10%  { background-color: #ef3340; }
+  20%  { background-color: #ff69b4; }
+  30%  { background-color: #e97451; }
+  40%  { background-color: #a0522d; }
+  50%  { background-color: #0a0a1a; }
+  60%  { background-color: #39ff14; }
+  70%  { background-color: #ffffff; }
+  80%  { background-color: #f4ffde; }
+  90%  { background-color: #000000; }
+  100% { background-color: #4a0e17; }
 }
+
 
 body {
   margin: 0;
@@ -20,10 +27,9 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  animation: colorfade 30s infinite alternate;
-  transition: background-color 2s ease-in-out;
+  animation: colorfade 12s steps(10, end) infinite;
+  transition: none; /* removes smooth fade */
 }
-
 main {
   max-width: 90%;
   padding: 1rem;
