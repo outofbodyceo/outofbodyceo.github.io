@@ -27,7 +27,6 @@ h1 {
   color: #ff0033; /* upgraded neon-style red */
   font-size: 5rem;
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 8px #ff0033; /* optional glow */
 }
 
 .dim {
