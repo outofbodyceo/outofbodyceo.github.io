@@ -18,30 +18,5 @@
     <p><a href="tel:14164646411">416-464-6411</a></p>
     <p><a href="assets/so-you-think-you-have-bed-bugs.pdf" target="_blank">So You Think You Have Bed Bugs (PDF)</a></p>
   </main>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const colors = [
-        '#000000',  // Black
-        '#ff4fa2',  // Barbie Pink
-        '#f4ffde',  // Lime White
-        '#4a0e17',  // Dried Blood
-        '#ffffff',  // White
-        '#a0522d',  // Sienna
-        '#39ff14',  // Neon Green
-        '#0a0a1a',  // Deep Navy
-        '#3a0f23',  // Deep Eggplant
-        '#e97451'   // Burnt Sienna
-      ];
-
-      function changeBackground() {
-        const nextColor = colors[Math.floor(Math.random() * colors.length)];
-        document.body.style.backgroundColor = nextColor;
-      }
-
-      changeBackground(); // Initial background
-      setInterval(changeBackground, 3000); // Change every 6 seconds
-    });
-  </script>
 </body>
 </html>
