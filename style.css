@@ -52,9 +52,11 @@ a:hover {
 }
 
 .logo img {
-  width: 120px;
-  margin-bottom: 2rem;
+  width: 220px;
+  max-width: 90vw;
+  margin-bottom: 2.5rem;
 }
+
 
 @media (max-width: 600px) {
   h1 {
@@ -64,6 +66,6 @@ a:hover {
     font-size: 1rem;
   }
   .logo img {
-    width: 80px;
+    width: 120px;
   }
 }
