@@ -128,12 +128,15 @@ section {
   font-weight: 700;
   letter-spacing: 0.01em;
   margin-bottom: 50px;
-  line-height: 1.2;
+  line-height: 1.3;
+  padding: 0 5%;
 }
 
 .services-list {
   font-size: clamp(1.1rem, 2.5vw, 2rem);
   line-height: 1.6;
+  font-weight: 700;
+  padding: 0 5%;
 }
 
 /* CTA Buttons */
@@ -182,13 +185,18 @@ section {
   text-align: center;
 }
 
-.trust-point .copy-text {
+.trust-title {
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 700;
   margin-bottom: 15px;
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.2;
 }
 
-.trust-point strong {
-  font-weight: 700;
+.trust-text {
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.9;
 }
 
 /* Final Section */
@@ -198,10 +206,12 @@ section {
 
 .closing-title {
   font-size: clamp(2rem, 6vw, 7rem);
-  line-height: 1.1;
+  font-weight: 700;
+  line-height: 1.2;
   padding: 0 5%;
   width: 100%;
   box-sizing: border-box;
+  letter-spacing: 0.01em;
 }
 
 /* Responsive */
@@ -253,6 +263,14 @@ section {
   .section-heading {
     margin-bottom: 40px;
   }
+  
+  .services-list {
+    font-size: clamp(1rem, 2.3vw, 1.6rem);
+  }
+  
+  .closing-title {
+    font-size: clamp(1.8rem, 5.5vw, 5rem);
+  }
 }
 
 @media (max-width: 480px) {
@@ -275,7 +293,7 @@ section {
   }
   
   .closing-title {
-    font-size: clamp(1.6rem, 5vw, 4rem);
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
     padding: 0 3%;
   }
   
