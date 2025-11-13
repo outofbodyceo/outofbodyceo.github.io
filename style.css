@@ -82,12 +82,15 @@ section {
 }
 
 .hero-title {
-  font-size: clamp(4rem, 15vw, 13rem);
+  font-size: clamp(4rem, 12vw, 13rem);
   font-weight: 700;
   letter-spacing: 0.05em;
   line-height: 0.95;
   margin-bottom: 30px;
-  white-space: nowrap; /* Keeps OUT OF BODY on one line */
+  white-space: nowrap;
+  max-width: 95vw; /* Prevents bleeding off screen */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-subtitle {
