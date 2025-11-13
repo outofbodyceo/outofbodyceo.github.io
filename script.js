@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeTaglineToggle();
 });
 
-// Set up cycling backgrounds - calm fade, but more frequent
+// Set up cycling backgrounds - calm fade, more frequent
 function initializeBackgrounds() {
   // Cycle every 4-5 seconds with 2.5 second smooth fade
   setupCrossfade('bg1', 0, 4000);
