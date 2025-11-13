@@ -72,7 +72,7 @@ section {
   z-index: 1;
   text-align: center;
   padding: 60px 40px;
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
 }
 
@@ -107,14 +107,6 @@ section {
   line-height: 1.5;
   margin-bottom: 40px;
   letter-spacing: 0.01em;
-}
-
-.copy-subtext {
-  font-size: clamp(1rem, 2vw, 1.6rem);
-  font-weight: 400;
-  line-height: 1.5;
-  opacity: 0.9;
-  margin-top: 10px;
 }
 
 .cta-text {
@@ -166,37 +158,27 @@ section {
   color: #fff;
 }
 
-/* Trust Section */
+/* Trust Section - Inline */
 .trust-section {
   min-height: 100vh;
 }
 
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 50px;
-  margin-top: 40px;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.trust-point {
-  text-align: center;
-}
-
-.trust-title {
+.trust-line {
   font-size: clamp(1.5rem, 2.8vw, 2.2rem);
   font-weight: 700;
-  margin-bottom: 15px;
-  line-height: 1.2;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  padding: 0 3%;
 }
 
-.trust-text {
+.trust-details {
   font-size: clamp(1rem, 2vw, 1.6rem);
   font-weight: 400;
-  line-height: 1.5;
-  opacity: 0.9;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3%;
 }
 
 /* Final Section */
@@ -242,6 +224,7 @@ section {
   
   .copy-text {
     margin-bottom: 30px;
+    font-size: clamp(1.2rem, 2.8vw, 2rem);
   }
   
   .cta-buttons {
@@ -255,17 +238,20 @@ section {
     max-width: 300px;
   }
   
-  .trust-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
   .section-heading {
     margin-bottom: 40px;
   }
   
   .services-list {
     font-size: clamp(1rem, 2.3vw, 1.6rem);
+  }
+  
+  .trust-line {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  }
+  
+  .trust-details {
+    font-size: clamp(0.9rem, 1.8vw, 1.3rem);
   }
   
   .closing-title {
@@ -292,12 +278,16 @@ section {
     font-size: clamp(0.9rem, 2.3vw, 1.4rem);
   }
   
+  .trust-line {
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  }
+  
+  .trust-details {
+    font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+  }
+  
   .closing-title {
     font-size: clamp(1.5rem, 5vw, 3.5rem);
     padding: 0 3%;
-  }
-  
-  .trust-grid {
-    gap: 35px;
   }
 }
