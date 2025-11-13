@@ -10,7 +10,7 @@ const images = [
 
 // Taglines for hero
 const taglines = [
-  'Undercover Bedbug Specialist',
+  'Undercover Bed Bug Specialist',
   'Emotionally Attuned Pest Control'
 ];
 
