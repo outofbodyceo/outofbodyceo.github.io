@@ -1,80 +1,86 @@
 // Out of Body - Main JavaScript
 
-// Background images array
-const backgroundImages = [
+// Background images
+const images = [
   'images/bed-bug-treatment-toronto.webp',
   'images/bedbug-removal-service-toronto.jpg',
   'images/toronto-bed-bug-extermination.jpg',
   'images/toronto-pest-control-bed-bugs.jpg'
 ];
 
-// Tagline toggle texts
+// Taglines for hero
 const taglines = [
-  'EMOTIONALLY ATTUNED PEST CONTROL',
-  'UNDERCOVER BED BUG EXPERTS'
+  'Undercover Bedbug Specialist',
+  'Emotionally Attuned Pest Control'
 ];
 
-let currentBgIndex = 0;
-let currentTaglineIndex = 0;
-
-// Initialize
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-  initializeBackground();
+  initializeBackgrounds();
   initializeTaglineToggle();
 });
 
-// Background cycling function
-function initializeBackground() {
-  const bgContainer = document.getElementById('backgroundContainer');
+// Set up cycling backgrounds for each section
+function initializeBackgrounds() {
+  // Section 1 - starts with image 0
+  cycleBg('bg1', 0, 8000);
   
-  // Set initial background
-  bgContainer.style.backgroundImage = `url('${backgroundImages[currentBgIndex]}')`;
+  // Section 2 - starts with image 1 (staggered)
+  cycleBg('bg2', 1, 9000);
   
-  // Cycle through backgrounds every 8 seconds
-  setInterval(() => {
-    currentBgIndex = (currentBgIndex + 1) % backgroundImages.length;
-    
-    // Fade out
-    bgContainer.style.opacity = '0';
-    
-    // Change image after fade out
-    setTimeout(() => {
-      bgContainer.style.backgroundImage = `url('${backgroundImages[currentBgIndex]}')`;
-      // Fade in
-      bgContainer.style.opacity = '1';
-    }, 2000);
-  }, 8000);
+  // Section 3 - starts with image 2
+  cycleBg('bg3', 2, 7500);
+  
+  // Section 4 - starts with image 3
+  cycleBg('bg4', 3, 8500);
+  
+  // Section 5 - starts with image 0
+  cycleBg('bg5', 0, 9500);
 }
 
-// Tagline toggle function
+// Cycle background for a specific element
+function cycleBg(elementId, startIndex, interval) {
+  const element = document.getElementById(elementId);
+  let currentIndex = startIndex;
+  
+  // Set initial image
+  element.style.backgroundImage = `url('${images[currentIndex]}')`;
+  element.style.opacity = '1';
+  
+  // Cycle through images
+  setInterval(() => {
+    // Fade out
+    element.style.transition = 'opacity 2s ease-in-out';
+    element.style.opacity = '0';
+    
+    // Change image and fade in
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      element.style.backgroundImage = `url('${images[currentIndex]}')`;
+      element.style.opacity = '1';
+    }, 2000);
+  }, interval);
+}
+
+// Toggle tagline in hero
 function initializeTaglineToggle() {
   const taglineElement = document.getElementById('tagline');
+  let currentTaglineIndex = 0;
   
-  // Start toggling after initial display (3 seconds after page load)
-  setTimeout(() => {
-    setInterval(() => {
-      // Fade out current tagline
-      taglineElement.style.opacity = '0';
-      
-      // Change text after fade out
-      setTimeout(() => {
-        currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
-        taglineElement.textContent = taglines[currentTaglineIndex];
-        
-        // Fade in new tagline
-        taglineElement.style.opacity = '1';
-      }, 800);
-    }, 5000); // Toggle every 5 seconds
-  }, 3000); // Start after 3 seconds
+  setInterval(() => {
+    taglineElement.style.transition = 'opacity 1s ease-in-out';
+    taglineElement.style.opacity = '0';
+    
+    setTimeout(() => {
+      currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
+      taglineElement.textContent = taglines[currentTaglineIndex];
+      taglineElement.style.opacity = '1';
+    }, 1000);
+  }, 5000);
 }
 
-// Preload all background images for smooth transitions
-function preloadImages() {
-  backgroundImages.forEach(imageSrc => {
-    const img = new Image();
-    img.src = imageSrc;
-  });
-}
-
-// Call preload on page load
-preloadImages();
+// Preload all images
+images.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
