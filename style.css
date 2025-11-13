@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: 'Times New Roman', Times, serif;
-  color: #FF3300; /* Warm orangey-red, neon */
+  color: #FF3300;
   background-color: #000;
   overflow-x: hidden;
 }
@@ -88,8 +88,6 @@ section {
   line-height: 1;
   margin-bottom: 30px;
   padding: 0 5%;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .hero-subtitle {
@@ -107,11 +105,33 @@ section {
   line-height: 1.5;
   margin-bottom: 40px;
   letter-spacing: 0.01em;
+  padding: 0 3%;
 }
 
 .cta-text {
   margin-top: 60px;
   margin-bottom: 30px;
+}
+
+/* Trust Section Details */
+.trust-details {
+  font-size: clamp(1.1rem, 2.5vw, 2rem);
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+/* Service Area Text */
+.services-area {
+  font-size: clamp(1.1rem, 2.5vw, 2rem);
+  font-weight: 700;
+}
+
+/* Closing Message */
+.closing-message {
+  font-size: clamp(2rem, 6vw, 7rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
 }
 
 /* Section Headings */
@@ -121,13 +141,6 @@ section {
   letter-spacing: 0.01em;
   margin-bottom: 50px;
   line-height: 1.3;
-  padding: 0 5%;
-}
-
-.services-list {
-  font-size: clamp(1.1rem, 2.5vw, 2rem);
-  line-height: 1.6;
-  font-weight: 700;
   padding: 0 5%;
 }
 
@@ -158,40 +171,14 @@ section {
   color: #fff;
 }
 
-/* Trust Section - Inline */
+/* Trust Section */
 .trust-section {
   min-height: 100vh;
-}
-
-.trust-main {
-  font-size: clamp(1.5rem, 3.2vw, 2.8rem);
-  font-weight: 700;
-  margin-bottom: 35px;
-  line-height: 1.5;
-}
-
-.trust-sub {
-  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
-  font-weight: 400;
-  line-height: 1.6;
-  opacity: 0.95;
-  max-width: 1300px;
-  margin: 0 auto;
 }
 
 /* Final Section */
 .final-section {
   min-height: 100vh;
-}
-
-.closing-title {
-  font-size: clamp(2rem, 6vw, 7rem);
-  font-weight: 700;
-  line-height: 1.2;
-  padding: 0 5%;
-  width: 100%;
-  box-sizing: border-box;
-  letter-spacing: 0.01em;
 }
 
 /* Responsive */
@@ -225,6 +212,18 @@ section {
     font-size: clamp(1.2rem, 2.8vw, 2rem);
   }
   
+  .trust-details {
+    font-size: clamp(1rem, 2.3vw, 1.6rem);
+  }
+  
+  .services-area {
+    font-size: clamp(1rem, 2.3vw, 1.6rem);
+  }
+  
+  .closing-message {
+    font-size: clamp(1.8rem, 5.5vw, 5rem);
+  }
+  
   .cta-buttons {
     flex-direction: column;
     gap: 15px;
@@ -238,22 +237,6 @@ section {
   
   .section-heading {
     margin-bottom: 40px;
-  }
-  
-  .services-list {
-    font-size: clamp(1rem, 2.3vw, 1.6rem);
-  }
-  
-  .trust-line {
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  }
-  
-  .trust-details {
-    font-size: clamp(0.9rem, 1.8vw, 1.3rem);
-  }
-  
-  .closing-title {
-    font-size: clamp(1.8rem, 5.5vw, 5rem);
   }
 }
 
@@ -276,15 +259,19 @@ section {
     font-size: clamp(0.9rem, 2.3vw, 1.4rem);
   }
   
-  .trust-line {
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  .copy-text {
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
   }
   
   .trust-details {
-    font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+    font-size: clamp(0.95rem, 2vw, 1.4rem);
   }
   
-  .closing-title {
+  .services-area {
+    font-size: clamp(0.95rem, 2vw, 1.4rem);
+  }
+  
+  .closing-message {
     font-size: clamp(1.5rem, 5vw, 3.5rem);
     padding: 0 3%;
   }
