@@ -22,24 +22,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Set up cycling backgrounds for each section with crossfade
 function initializeBackgrounds() {
-  // Create dual-layer backgrounds for smooth crossfade
-  setupCrossfade('bg1', 0, 8000);
-  setupCrossfade('bg2', 1, 9000);
-  setupCrossfade('bg3', 2, 7500);
-  setupCrossfade('bg4', 3, 8500);
-  setupCrossfade('bg5', 0, 9500);
+  // Each section with staggered timing
+  setupCrossfade('bg1', 0, 7000);
+  setupCrossfade('bg2', 1, 7500);
+  setupCrossfade('bg3', 2, 8000);
+  setupCrossfade('bg4', 3, 7200);
+  setupCrossfade('bg5', 0, 7800);
 }
 
-// Setup crossfade effect for smooth transitions
+// Setup crossfade - NO BLACK SCREENS
 function setupCrossfade(elementId, startIndex, interval) {
   const container = document.getElementById(elementId);
   let currentIndex = startIndex;
+  let nextIndex = (startIndex + 1) % images.length;
   
-  // Create two layers for crossfading
+  // Create two layers
   const layer1 = document.createElement('div');
   const layer2 = document.createElement('div');
   
-  layer1.style.cssText = `
+  const layerStyle = `
     position: absolute;
     top: 0;
     left: 0;
@@ -51,36 +52,55 @@ function setupCrossfade(elementId, startIndex, interval) {
     transition: opacity 3s ease-in-out;
   `;
   
-  layer2.style.cssText = layer1.style.cssText;
+  layer1.style.cssText = layerStyle;
+  layer2.style.cssText = layerStyle;
   
-  // Set initial images
+  // Initialize - layer1 visible, layer2 preloaded underneath
   layer1.style.backgroundImage = `url('${images[currentIndex]}')`;
   layer1.style.opacity = '1';
-  layer2.style.opacity = '0';
+  layer1.style.zIndex = '2';
+  
+  layer2.style.backgroundImage = `url('${images[nextIndex]}')`;
+  layer2.style.opacity = '1';
+  layer2.style.zIndex = '1';
   
   container.innerHTML = '';
-  container.appendChild(layer1);
   container.appendChild(layer2);
+  container.appendChild(layer1);
   
-  let useLayer1 = true;
+  let topLayer = layer1;
+  let bottomLayer = layer2;
   
-  // Cycle through images
+  // Cycle - fade top layer out to reveal bottom layer
   setInterval(() => {
-    currentIndex = (currentIndex + 1) % images.length;
+    // Fade out top layer
+    topLayer.style.opacity = '0';
     
-    if (useLayer1) {
-      // Fade to layer2
-      layer2.style.backgroundImage = `url('${images[currentIndex]}')`;
-      layer2.style.opacity = '1';
-      layer1.style.opacity = '0';
-    } else {
-      // Fade to layer1
-      layer1.style.backgroundImage = `url('${images[currentIndex]}')`;
-      layer1.style.opacity = '1';
-      layer2.style.opacity = '0';
-    }
+    // After fade completes, swap layers
+    setTimeout(() => {
+      // Swap z-index
+      if (topLayer === layer1) {
+        layer1.style.zIndex = '1';
+        layer2.style.zIndex = '2';
+        topLayer = layer2;
+        bottomLayer = layer1;
+      } else {
+        layer2.style.zIndex = '1';
+        layer1.style.zIndex = '2';
+        topLayer = layer1;
+        bottomLayer = layer2;
+      }
+      
+      // Load next image into bottom layer and make it visible
+      nextIndex = (nextIndex + 1) % images.length;
+      bottomLayer.style.backgroundImage = `url('${images[nextIndex]}')`;
+      bottomLayer.style.opacity = '1';
+      
+      // Reset top layer opacity for next fade
+      topLayer.style.opacity = '1';
+      
+    }, 3000); // Wait for fade to complete
     
-    useLayer1 = !useLayer1;
   }, interval);
 }
 
@@ -101,7 +121,7 @@ function initializeTaglineToggle() {
   }, 5000);
 }
 
-// Preload all images for smooth transitions
+// Preload all images
 images.forEach(src => {
   const img = new Image();
   img.src = src;
