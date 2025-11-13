@@ -126,14 +126,6 @@ section {
   font-weight: 700;
 }
 
-/* Closing Message */
-.closing-message {
-  font-size: clamp(2rem, 6vw, 7rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-}
-
 /* Section Headings */
 .section-heading {
   font-size: clamp(2rem, 5vw, 4rem);
@@ -181,6 +173,55 @@ section {
   min-height: 100vh;
 }
 
+/* Closing Section - Two Lines */
+.closing-title {
+  font-size: clamp(2.5rem, 8vw, 9rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+}
+
+.closing-subtitle {
+  font-size: clamp(2rem, 6vw, 7rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* Footer */
+.site-footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-text {
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 400;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.footer-contact {
+  font-size: clamp(0.85rem, 1.3vw, 1.1rem);
+  font-weight: 400;
+  margin: 0;
+}
+
+.footer-link {
+  color: #FF3300;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.6;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .contact-bar {
@@ -220,8 +261,12 @@ section {
     font-size: clamp(1rem, 2.3vw, 1.6rem);
   }
   
-  .closing-message {
-    font-size: clamp(1.8rem, 5.5vw, 5rem);
+  .closing-title {
+    font-size: clamp(2rem, 7vw, 6rem);
+  }
+  
+  .closing-subtitle {
+    font-size: clamp(1.6rem, 5vw, 4.5rem);
   }
   
   .cta-buttons {
@@ -271,8 +316,11 @@ section {
     font-size: clamp(0.95rem, 2vw, 1.4rem);
   }
   
-  .closing-message {
-    font-size: clamp(1.5rem, 5vw, 3.5rem);
-    padding: 0 3%;
+  .closing-title {
+    font-size: clamp(1.8rem, 6vw, 5rem);
+  }
+  
+  .closing-subtitle {
+    font-size: clamp(1.4rem, 4.5vw, 3.5rem);
   }
 }
