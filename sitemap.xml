@@ -7,13 +7,3 @@
     <priority>1.0</priority>
   </url>
 </urlset>
-```
-
----
-
-## **NEW FILE: robots.txt** (create this file in your repo root)
-```
-User-agent: *
-Allow: /
-
-Sitemap: https://outofbody.ca/sitemap.xml
