@@ -82,22 +82,20 @@ section {
 }
 
 .hero-title {
-  font-size: clamp(4rem, 12vw, 13rem);
+  font-size: clamp(2.5rem, 9vw, 11rem);
   font-weight: 700;
-  letter-spacing: 0.05em;
-  line-height: 0.95;
+  letter-spacing: 0.02em;
+  line-height: 1;
   margin-bottom: 30px;
-  white-space: nowrap;
-  max-width: 95vw; /* Prevents bleeding off screen */
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 20px;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.5rem, 4vw, 3.5rem);
+  font-size: clamp(1.2rem, 3.5vw, 3rem);
   font-weight: 700;
   letter-spacing: 0.01em;
-  line-height: 1.2;
+  line-height: 1.3;
+  padding: 0 20px;
 }
 
 /* Copy Text */
@@ -197,8 +195,9 @@ section {
 }
 
 .closing-title {
-  font-size: clamp(3rem, 10vw, 9rem);
-  white-space: nowrap; /* Keeps closing title on one line */
+  font-size: clamp(2rem, 7vw, 8rem);
+  line-height: 1.1;
+  padding: 0 20px;
 }
 
 /* Responsive */
@@ -220,7 +219,11 @@ section {
   
   .hero-title {
     margin-bottom: 20px;
-    font-size: clamp(3rem, 12vw, 8rem);
+    font-size: clamp(2rem, 8vw, 6rem);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 3vw, 2rem);
   }
   
   .copy-text {
@@ -258,12 +261,16 @@ section {
   }
   
   .hero-title {
-    font-size: clamp(2.5rem, 10vw, 6rem);
-    white-space: normal; /* Allow wrapping on very small screens */
+    font-size: clamp(1.8rem, 7vw, 5rem);
+    padding: 0 10px;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
   }
   
   .closing-title {
-    white-space: normal; /* Allow wrapping on very small screens */
+    font-size: clamp(1.8rem, 6vw, 5rem);
   }
   
   .trust-grid {
