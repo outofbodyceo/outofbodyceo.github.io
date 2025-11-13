@@ -20,18 +20,18 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeTaglineToggle();
 });
 
-// Set up cycling backgrounds - faster timing (2-3 seconds)
+// Set up cycling backgrounds - calm fade, but more frequent
 function initializeBackgrounds() {
-  // Each section with staggered timing between 2-3 seconds
-  setupCrossfade('bg1', 0, 2000);
-  setupCrossfade('bg2', 1, 2300);
-  setupCrossfade('bg3', 2, 2700);
-  setupCrossfade('bg4', 3, 2100);
-  setupCrossfade('bg5', 0, 2500);
-  setupCrossfade('bg6', 1, 2200);
+  // Cycle every 4-5 seconds with 2.5 second smooth fade
+  setupCrossfade('bg1', 0, 4000);
+  setupCrossfade('bg2', 1, 4300);
+  setupCrossfade('bg3', 2, 4700);
+  setupCrossfade('bg4', 3, 4100);
+  setupCrossfade('bg5', 0, 4500);
+  setupCrossfade('bg6', 1, 4200);
 }
 
-// Setup crossfade - NO BLACK SCREENS, faster transitions
+// Setup crossfade - CALM smooth fade, NO BLACK
 function setupCrossfade(elementId, startIndex, interval) {
   const container = document.getElementById(elementId);
   let currentIndex = startIndex;
@@ -50,13 +50,13 @@ function setupCrossfade(elementId, startIndex, interval) {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 2.5s ease-in-out;
   `;
   
   layer1.style.cssText = layerStyle;
   layer2.style.cssText = layerStyle;
   
-  // Initialize - layer1 visible, layer2 preloaded underneath
+  // Initialize immediately
   layer1.style.backgroundImage = `url('${images[currentIndex]}')`;
   layer1.style.opacity = '1';
   layer1.style.zIndex = '2';
@@ -72,9 +72,9 @@ function setupCrossfade(elementId, startIndex, interval) {
   let topLayer = layer1;
   let bottomLayer = layer2;
   
-  // Cycle - fade top layer out to reveal bottom layer
+  // Cycle with calm fade
   setInterval(() => {
-    // Fade out top layer
+    // Start calm fade out
     topLayer.style.opacity = '0';
     
     // After fade completes, swap layers
@@ -92,34 +92,30 @@ function setupCrossfade(elementId, startIndex, interval) {
         bottomLayer = layer2;
       }
       
-      // Load next image into bottom layer and make it visible
+      // Load next image into bottom layer
       nextIndex = (nextIndex + 1) % images.length;
       bottomLayer.style.backgroundImage = `url('${images[nextIndex]}')`;
       bottomLayer.style.opacity = '1';
       
-      // Reset top layer opacity for next fade
+      // Reset top layer for next fade
       topLayer.style.opacity = '1';
       
-    }, 1500); // Wait for 1.5s fade to complete
+    }, 2500); // Wait for 2.5s calm fade
     
   }, interval);
 }
 
-// Toggle tagline in hero
+// Toggle tagline - INSTANT snap, no fade
 function initializeTaglineToggle() {
   const taglineElement = document.getElementById('tagline');
   let currentTaglineIndex = 0;
   
+  // Start toggling immediately
   setInterval(() => {
-    taglineElement.style.transition = 'opacity 1s ease-in-out';
-    taglineElement.style.opacity = '0';
-    
-    setTimeout(() => {
-      currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
-      taglineElement.textContent = taglines[currentTaglineIndex];
-      taglineElement.style.opacity = '1';
-    }, 1000);
-  }, 5000);
+    // Instant snap to next tagline
+    currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
+    taglineElement.textContent = taglines[currentTaglineIndex];
+  }, 2500); // Toggle every 2.5 seconds
 }
 
 // Preload all images
