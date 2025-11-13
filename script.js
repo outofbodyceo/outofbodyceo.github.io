@@ -20,18 +20,18 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeTaglineToggle();
 });
 
-// Set up cycling backgrounds for each section with crossfade
+// Set up cycling backgrounds - faster timing (2-3 seconds)
 function initializeBackgrounds() {
-  // Each section with staggered timing - added bg6 for new section
-  setupCrossfade('bg1', 0, 7000);
-  setupCrossfade('bg2', 1, 7500);
-  setupCrossfade('bg3', 2, 8000);
-  setupCrossfade('bg4', 3, 7200);
-  setupCrossfade('bg5', 0, 7800);
-  setupCrossfade('bg6', 1, 7400);
+  // Each section with staggered timing between 2-3 seconds
+  setupCrossfade('bg1', 0, 2000);
+  setupCrossfade('bg2', 1, 2300);
+  setupCrossfade('bg3', 2, 2700);
+  setupCrossfade('bg4', 3, 2100);
+  setupCrossfade('bg5', 0, 2500);
+  setupCrossfade('bg6', 1, 2200);
 }
 
-// Setup crossfade - NO BLACK SCREENS
+// Setup crossfade - NO BLACK SCREENS, faster transitions
 function setupCrossfade(elementId, startIndex, interval) {
   const container = document.getElementById(elementId);
   let currentIndex = startIndex;
@@ -50,7 +50,7 @@ function setupCrossfade(elementId, startIndex, interval) {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: opacity 3s ease-in-out;
+    transition: opacity 1.5s ease-in-out;
   `;
   
   layer1.style.cssText = layerStyle;
@@ -100,7 +100,7 @@ function setupCrossfade(elementId, startIndex, interval) {
       // Reset top layer opacity for next fade
       topLayer.style.opacity = '1';
       
-    }, 3000); // Wait for fade to complete
+    }, 1500); // Wait for 1.5s fade to complete
     
   }, interval);
 }
