@@ -22,12 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Set up cycling backgrounds for each section with crossfade
 function initializeBackgrounds() {
-  // Each section with staggered timing
+  // Each section with staggered timing - added bg6 for new section
   setupCrossfade('bg1', 0, 7000);
   setupCrossfade('bg2', 1, 7500);
   setupCrossfade('bg3', 2, 8000);
   setupCrossfade('bg4', 3, 7200);
   setupCrossfade('bg5', 0, 7800);
+  setupCrossfade('bg6', 1, 7400);
 }
 
 // Setup crossfade - NO BLACK SCREENS
