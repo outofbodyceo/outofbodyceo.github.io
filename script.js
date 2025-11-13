@@ -20,45 +20,67 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeTaglineToggle();
 });
 
-// Set up cycling backgrounds for each section
+// Set up cycling backgrounds for each section with crossfade
 function initializeBackgrounds() {
-  // Section 1 - starts with image 0
-  cycleBg('bg1', 0, 8000);
-  
-  // Section 2 - starts with image 1 (staggered)
-  cycleBg('bg2', 1, 9000);
-  
-  // Section 3 - starts with image 2
-  cycleBg('bg3', 2, 7500);
-  
-  // Section 4 - starts with image 3
-  cycleBg('bg4', 3, 8500);
-  
-  // Section 5 - starts with image 0
-  cycleBg('bg5', 0, 9500);
+  // Create dual-layer backgrounds for smooth crossfade
+  setupCrossfade('bg1', 0, 8000);
+  setupCrossfade('bg2', 1, 9000);
+  setupCrossfade('bg3', 2, 7500);
+  setupCrossfade('bg4', 3, 8500);
+  setupCrossfade('bg5', 0, 9500);
 }
 
-// Cycle background for a specific element
-function cycleBg(elementId, startIndex, interval) {
-  const element = document.getElementById(elementId);
+// Setup crossfade effect for smooth transitions
+function setupCrossfade(elementId, startIndex, interval) {
+  const container = document.getElementById(elementId);
   let currentIndex = startIndex;
   
-  // Set initial image
-  element.style.backgroundImage = `url('${images[currentIndex]}')`;
-  element.style.opacity = '1';
+  // Create two layers for crossfading
+  const layer1 = document.createElement('div');
+  const layer2 = document.createElement('div');
+  
+  layer1.style.cssText = `
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 3s ease-in-out;
+  `;
+  
+  layer2.style.cssText = layer1.style.cssText;
+  
+  // Set initial images
+  layer1.style.backgroundImage = `url('${images[currentIndex]}')`;
+  layer1.style.opacity = '1';
+  layer2.style.opacity = '0';
+  
+  container.innerHTML = '';
+  container.appendChild(layer1);
+  container.appendChild(layer2);
+  
+  let useLayer1 = true;
   
   // Cycle through images
   setInterval(() => {
-    // Fade out
-    element.style.transition = 'opacity 2s ease-in-out';
-    element.style.opacity = '0';
+    currentIndex = (currentIndex + 1) % images.length;
     
-    // Change image and fade in
-    setTimeout(() => {
-      currentIndex = (currentIndex + 1) % images.length;
-      element.style.backgroundImage = `url('${images[currentIndex]}')`;
-      element.style.opacity = '1';
-    }, 2000);
+    if (useLayer1) {
+      // Fade to layer2
+      layer2.style.backgroundImage = `url('${images[currentIndex]}')`;
+      layer2.style.opacity = '1';
+      layer1.style.opacity = '0';
+    } else {
+      // Fade to layer1
+      layer1.style.backgroundImage = `url('${images[currentIndex]}')`;
+      layer1.style.opacity = '1';
+      layer2.style.opacity = '0';
+    }
+    
+    useLayer1 = !useLayer1;
   }, interval);
 }
 
@@ -79,7 +101,7 @@ function initializeTaglineToggle() {
   }, 5000);
 }
 
-// Preload all images
+// Preload all images for smooth transitions
 images.forEach(src => {
   const img = new Image();
   img.src = src;
